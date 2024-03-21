@@ -1,0 +1,22 @@
+{%extends 'layout/app-layout.html'%}
+{%block 'content' %}
+<h1>Retrieve Medicine</h1>
+<table border="1">
+    <tr>
+        <th>Medicine Name</th>
+        <th>Medicine Description</th>
+        <th>Medicine Price</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+    {% for medicine in medicine_list%}
+    <tr>
+    <td>{{medicine.name}}</td>
+    <td>{{ medicine.description }} </td> 
+    <td>{{ medicine.price }}</td>
+    <td > <a href="{%url 'updatemedicine' medicine.id %}" class="b1" value="edit" type="submit">Edit</a></td>
+    <td> <a href="{%url 'deletemedicine' medicine.id %}" class="b2" value="edit" type="submit">Delete</a></td>
+    </tr>
+     {% endfor %}
+    </table> 
+{%endblock%}
